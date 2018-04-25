@@ -10,16 +10,25 @@
 </template>
 
 <script>
+
+// import 'styles/variables.css'
+
 export default {
   name: 'HomeHeader'
 }
 </script>
 
 <style module>
-    .header {
+
+    @value bgHeader, cred, cgreen from "styles/variables.css";
+
+    .d-flex {
         display: flex;
+    }
+    .header {
+        composes: d-flex;
         line-height: .86rem;
-        background-color: #00bcd4;
+        background-color: bgHeader;
         color: #fff;
     }
 
