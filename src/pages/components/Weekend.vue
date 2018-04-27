@@ -1,14 +1,15 @@
 <template>
     <div>
-      <div :class="$style.title">热门推荐</div>
+      <div :class="$style.title">周末去哪儿</div>
       <ul>
-        <li :class="$style.item" v-for="item of recommendList" :key="item.id">
-          <img :src="item.imgUrl" alt="" 
-          :class="$style.item_img">
+        <li v-for="item of recommendList" :key="item.id">
+          <div :class="$style.item_img_warpper">
+            <img :src="item.imgUrl" alt="" 
+            :class="$style.item_img">
+          </div>
           <div :class="$style.item_info">
             <p :class="$style.item_title">{{item.title}}</p>
             <p :class="$style.item_dsc">{{item.dsc}}</p>
-            <button :class="$style.item_btn">查看详情</button>
           </div>
         </li>
       </ul>
@@ -18,22 +19,22 @@
 <script>
 
 export default {
-  name: 'HomeRecommend',
+  name: 'HomeWeekend',
   data () {
     return {
       recommendList: [{
         id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/b0/b0132e78efa00572.water.jpg_200x200_3f499a59.jpg',
+        imgUrl: 'http://img1.qunarzz.com/sight/source/1507/e8/7afdd7b86bf778.jpg_r_640x214_c70adb31.jpg',
         title: '慢游成都最美古镇',
         dsc: '撷取一份悠闲，寻觅散落在时光里的幸福'
       },{
         id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/b0/b0132e78efa00572.water.jpg_200x200_3f499a59.jpg',
+        imgUrl: 'http://img1.qunarzz.com/sight/source/1507/e8/7afdd7b86bf778.jpg_r_640x214_c70adb31.jpg',
         title: '慢游成都最美古镇',
         dsc: '撷取一份悠闲，寻觅散落在时光里的幸福'
       },{
         id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/b0/b0132e78efa00572.water.jpg_200x200_3f499a59.jpg',
+        imgUrl: 'http://img1.qunarzz.com/sight/source/1507/e8/7afdd7b86bf778.jpg_r_640x214_c70adb31.jpg',
         title: '慢游成都最美古镇',
         dsc: '撷取一份悠闲，寻觅散落在时光里的幸福'
       }]
@@ -51,22 +52,17 @@ export default {
     text-indent: .2rem;
   }
 
-  .item {
+.item_img_warpper {
     overflow: hidden;
-    display: flex;
-    height: 1.9rem;
-    composes: border-bottom from 'styles/border.css';
+    height: 0;
+    padding-bottom: 33.9%;
   }
 
   .item_img {
-    height: 1.7rem;
-    width: 1.7rem;
-    margin: .1rem;
+    width: 100%;
   }
 
   .item_info {
-    flex: 1;
-    min-width: 0;
     padding: .1rem;
   }
 
@@ -81,12 +77,4 @@ export default {
     composes: u_text_overflow_ellipsis from 'styles/utilities.css';
   }
 
-  .item_btn {
-    margin-top: .16rem;
-    line-height: .44rem;
-    padding: 0 .1rem;
-    border-radius: .06rem;
-    background-color: #ff9300;
-    color: #fff;
-  }
 </style>

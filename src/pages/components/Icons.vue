@@ -83,6 +83,7 @@ export default {
       width: 100%;
       height: 0;
       padding-bottom: 50%; /* 自动撑开比例 2:1； 以父元素weidth 为参照 */
+      margin-top: .1rem;
     }
 
     .icon {
@@ -116,7 +117,7 @@ export default {
       left: 0;
       right: 0;
       line-height: .44rem;
-      composes: u-text-overflow-ellipsis from 'styles/utilities.css';
+      composes: u_text_overflow_ellipsis from 'styles/utilities.css';
       color: fontBaseColor;
     }
 
