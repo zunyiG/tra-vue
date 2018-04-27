@@ -18,6 +18,7 @@ export default {
           el: '.swiper-pagination',
           bulletActiveClass: this.$style.bullet
         },
+        autoplay: true,
         loop: true
       },
       swiperList: [{
