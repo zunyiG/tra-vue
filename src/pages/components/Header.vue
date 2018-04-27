@@ -20,7 +20,7 @@ export default {
 
 <style module>
 
-    @value bgHeader, cred, cgreen from "styles/variables.css";
+    @value bgHeader from "styles/variables.css";
 
     .d-flex {
         display: flex;
