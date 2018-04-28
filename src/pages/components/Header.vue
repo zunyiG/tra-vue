@@ -5,7 +5,7 @@
             <i class="iconfont icon-sousuo"></i>
             输入城市/ 景点/ 主题
         </div>
-        <div :class="$style.right">城市<i :class="['iconfont', 'icon-xiala', $style.headerCity]"></i></div>
+        <div :class="$style.right">{{city}}<i :class="['iconfont', 'icon-xiala', $style.headerCity]"></i></div>
     </div>
 </template>
 
@@ -14,7 +14,12 @@
 // import 'styles/variables.css'
 
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: {
+      type: String
+    }
+  }
 }
 </script>
 

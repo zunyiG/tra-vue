@@ -1,6 +1,6 @@
 <template>
   <swiper :options="swiperOption" :class="$style.wiper">
-    <swiper-slide v-for="item of swiperList" :key="item.id">
+    <swiper-slide v-for="item of list" :key="item.id">
         <img :class="$style.img"
         :src="item.imgUrl" alt="">
     </swiper-slide>
@@ -11,6 +11,11 @@
 
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: {
+      type: Array
+    }
+  },
   data () {
     return {
       swiperOption: {
@@ -20,20 +25,12 @@ export default {
         },
         autoplay: true,
         loop: true
-      },
-      swiperList: [{
-        id: '001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/14/21f410d1016c8702.jpg_640x200_84d0effe.jpg'
-      },
-      {
-        id: '002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/58/f55d3bc7fe9cd502.jpg_640x200_4153eac0.jpg'
-      },
-      {
-        id: '003',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/66/60ca5c5498293002.jpg_640x200_3224af33.jpg'
-      }]
+      }
     }
+  },
+  mounted () {
+    // console.log(this.list);
+    // 子组件会在父组件渲染前进行渲染， 直到父组件渲染完成后才会把值传入子组件， 所以子组件渲染完成后值为空
   }
 }
 </script>

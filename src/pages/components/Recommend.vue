@@ -2,12 +2,11 @@
     <div>
       <div :class="$style.title">热门推荐</div>
       <ul>
-        <li :class="$style.item" v-for="item of recommendList" :key="item.id">
-          <img :src="item.imgUrl" alt="" 
-          :class="$style.item_img">
+        <li :class="$style.item" v-for="item of list" :key="item.id">
+          <img :src="item.imgUrl" :class="$style.item_img">
           <div :class="$style.item_info">
             <p :class="$style.item_title">{{item.title}}</p>
-            <p :class="$style.item_dsc">{{item.dsc}}</p>
+            <p :class="$style.item_dsc">{{item.desc}}</p>
             <button :class="$style.item_btn">查看详情</button>
           </div>
         </li>
@@ -19,24 +18,13 @@
 
 export default {
   name: 'HomeRecommend',
+  props: {
+    list: {
+      type: Array
+    }
+  },
   data () {
     return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/b0/b0132e78efa00572.water.jpg_200x200_3f499a59.jpg',
-        title: '慢游成都最美古镇',
-        dsc: '撷取一份悠闲，寻觅散落在时光里的幸福'
-      },{
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/b0/b0132e78efa00572.water.jpg_200x200_3f499a59.jpg',
-        title: '慢游成都最美古镇',
-        dsc: '撷取一份悠闲，寻觅散落在时光里的幸福'
-      },{
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/b0/b0132e78efa00572.water.jpg_200x200_3f499a59.jpg',
-        title: '慢游成都最美古镇',
-        dsc: '撷取一份悠闲，寻觅散落在时光里的幸福'
-      }]
     }
   }
 }
