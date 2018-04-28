@@ -1,17 +1,20 @@
 <template>
     <div>
-      <home-header></home-header>
+      <city-header></city-header>
+      <city-search></city-search>
     </div>
 </template>
 
 <script>
 
-import HomeHeader from './components/Header'
+import CityHeader from './components/Header'
+import CitySearch from './components/Search'
 
 export default {
-  name: 'Home',
+  name: 'City',
   components: {
-    HomeHeader
+    CityHeader,
+    CitySearch
   },
   data () {
     return {
@@ -23,9 +26,9 @@ export default {
     }
   },
   methods: {
-    getHomeInfo () {
+    getCityInfo () {
     },
-    getHomeInfoSucc ({data: {data: {city, swiperList, iconList, recommendList, weekendList} = {}, ret} = {}} = {}) {
+    getCityInfoSucc ({data: {data: {city, swiperList, iconList, recommendList, weekendList} = {}, ret} = {}} = {}) {
       if (ret) {
         this.city = city
         this.swiperList = swiperList
@@ -36,7 +39,7 @@ export default {
     }
   },
   mounted () {
-    this.getHomeInfo()
+    this.getCityInfo()
   }
 }
 </script>

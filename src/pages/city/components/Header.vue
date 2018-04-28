@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.header"> 
+    <div :class="$style.header">
       <router-link to="/">
         <div :class="$style.hederBack"><i :class="['iconfont', 'icon-fanhui']"></i></div>
       </router-link>
