@@ -5,7 +5,11 @@
             <i class="iconfont icon-sousuo"></i>
             输入城市/ 景点/ 主题
         </div>
-        <div :class="$style.right">{{city}}<i :class="['iconfont', 'icon-xiala', $style.headerCity]"></i></div>
+        <router-link to="/city">
+            <div :class="$style.right">{{city}}
+                <i :class="['iconfont', 'icon-xiala', $style.headerCity]"></i>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -42,14 +46,14 @@ export default {
         font-size: .40rem;
     }
 
-    .headerCity {
-        font-size: .24rem;
-        margin-left: .05rem;
-    }
-
     .left {
         width: .64rem;
         float: left;
+    }
+
+    .headerCity {
+        font-size: .24rem;
+        margin-left: .05rem;
     }
 
     .input {
@@ -69,6 +73,7 @@ export default {
         padding: 0 .24rem;
         float: right;
         text-align: center;
+        color:#fff;
     }
 
 </style>
