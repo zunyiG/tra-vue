@@ -20,7 +20,10 @@
             </div>
           </div>
         </div>
-        <div :class="$style.area" v-for="(item, key) of cities" :key="key">
+        <div :class="$style.area"
+        v-for="(item, key) of cities"
+        :key="key"
+        :ref="key">
           <div :class="$style.title">{{key}}</div>
           <div :class="$style.item_list">
             <div
@@ -29,17 +32,6 @@
             :key="inneritem.id">
             {{inneritem.name}}
             </div>
-          </div>
-        </div>
-        <div :class="$style.area">
-          <div :class="$style.title">A</div>
-          <div :class="$style.item_list">
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
           </div>
         </div>
       </div>
@@ -52,16 +44,32 @@ import Bscroll from 'better-scroll'
 
 export default {
   name: 'CityList',
+  data () {
+    return {
+      scroll
+    }
+  },
   props: {
     hotCities: {
       type: Array
     },
     cities: {
       type: Object
+    },
+    letter: {
+      type: String
     }
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.warpper)
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const el = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(el)
+      }
+    }
   }
 }
 </script>
