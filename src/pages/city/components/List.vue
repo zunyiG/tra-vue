@@ -12,40 +12,23 @@
         <div :class="$style.area">
           <div :class="$style.title">热门城市</div>
           <div :class="$style.button_list">
-            <div :class="$style.button_warpper">
-              <div :class="$style.button">北京</div>
-            </div>
-            <div :class="$style.button_warpper">
-              <div :class="$style.button">北京</div>
-            </div>
-            <div :class="$style.button_warpper">
-              <div :class="$style.button">北京</div>
-            </div>
-            <div :class="$style.button_warpper">
-              <div :class="$style.button">北京</div>
+            <div
+            :class="$style.button_warpper"
+            v-for="item of hotCities"
+            :key="item.id">
+              <div :class="$style.button">{{item.name}}</div>
             </div>
           </div>
         </div>
-        <div :class="$style.area">
-          <div :class="$style.title">A</div>
+        <div :class="$style.area" v-for="(item, key) of cities" :key="key">
+          <div :class="$style.title">{{key}}</div>
           <div :class="$style.item_list">
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-          </div>
-        </div>
-        <div :class="$style.area">
-          <div :class="$style.title">A</div>
-          <div :class="$style.item_list">
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
-            <div :class="$style.item">阿拉尔</div>
+            <div
+            :class="$style.item"
+            v-for="inneritem of item"
+            :key="inneritem.id">
+            {{inneritem.name}}
+            </div>
           </div>
         </div>
         <div :class="$style.area">
@@ -69,6 +52,14 @@ import Bscroll from 'better-scroll'
 
 export default {
   name: 'CityList',
+  props: {
+    hotCities: {
+      type: Array
+    },
+    cities: {
+      type: Object
+    }
+  },
   mounted () {
     this.scroll = new Bscroll(this.$refs.warpper)
   }
