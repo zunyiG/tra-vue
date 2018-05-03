@@ -3,7 +3,7 @@
     <li
     :class="$style.item"
     v-for="(item, key)
-    in cities"
+    of cities"
     :key="key"
     :ref="key"
     @touchstart="handleTouchStart"
