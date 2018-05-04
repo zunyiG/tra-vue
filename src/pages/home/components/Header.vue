@@ -6,7 +6,7 @@
             输入城市/ 景点/ 主题
         </div>
         <router-link to="/city">
-            <div :class="$style.right">{{city}}
+            <div :class="$style.right">{{this.doubleCity}}
                 <i :class="['iconfont', 'icon-xiala', $style.headerCity]"></i>
             </div>
         </router-link>
@@ -15,14 +15,14 @@
 
 <script>
 
+import { mapState, mapGetters } from 'vuex'
 // import 'styles/variables.css'
 
 export default {
   name: 'HomeHeader',
-  props: {
-    city: {
-      type: String
-    }
+  computed: {
+      ...mapState(['city']),
+      ...mapGetters(['doubleCity'])
   }
 }
 </script>
@@ -69,8 +69,8 @@ export default {
     }
 
     .right {
-        widows: 1.24rem;
-        padding: 0 .24rem;
+        min-width: 1.04rem;
+        padding: 0 .1rem;
         float: right;
         text-align: center;
         color:#fff;
