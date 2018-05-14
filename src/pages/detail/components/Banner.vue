@@ -22,7 +22,8 @@ export default {
   data () {
     return {
       showGallary: false,
-      imgs: ['//img1.qunarzz.com/sight/p0/1705/ed/edd4063a442f30c1a3.img.jpg_600x330_4e335e78.jpg','//img1.qunarzz.com/sight/p0/1705/ed/edd4063a442f30c1a3.img.jpg_600x330_4e335e78.jpg']
+      imgs: ['//img1.qunarzz.com/sight/p0/1705/ed/edd4063a442f30c1a3.img.jpg_600x330_4e335e78.jpg',
+        '//img1.qunarzz.com/sight/p0/1705/ed/edd4063a442f30c1a3.img.jpg_600x330_4e335e78.jpg']
     }
   },
   components: {
