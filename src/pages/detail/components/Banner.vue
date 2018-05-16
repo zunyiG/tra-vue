@@ -9,20 +9,27 @@
         <div :class="$style.banner_number"><i :class="['iconfont','icon-tupian', $style.icon]"></i> 39</div>
       </div>
     </div>
-    <common-gallary :imgs="gallaryImgs" :show="showGallary" @close="handleBannerClick"></common-gallary>
+    <fade-animation>
+      <common-gallary
+      :imgs="gallaryImgs"
+      v-if="showGallary"
+      :show="showGallary"
+      @close="handleBannerClick"></common-gallary>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 
 import CommonGallary from 'common/gallary/Gallary'
+import FadeAnimation from 'common/fade/Fade'
 
 export default {
   name: 'DetailBanner',
   props: {
-      sightName: String,
-      bannerImg: String,
-      gallaryImgs: Array,
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
   },
   data () {
     return {
@@ -30,7 +37,8 @@ export default {
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   },
   methods: {
     handleBannerClick () {
